@@ -1,0 +1,42 @@
+plugins {
+    id 'java'
+}
+
+group 'tech.moveflow'
+version '1.0-SNAPSHOT'
+
+repositories {
+    maven {
+        url "https://repo.osgeo.org/repository/release/"
+    }
+    mavenCentral()
+//    jcenter()
+    maven {
+        url "https://maven.geotoolkit.org"
+    }
+    maven {
+        url "https://repo.matsim.org/repository/matsim"
+    }
+    maven {
+        url "https://mvn.topobyte.de"
+    }
+    maven {
+        url "https://mvn.slimjars.com"
+    }
+
+}
+
+dependencies {
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.7.0'
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.7.0'
+
+    // https://mvnrepository.com/artifact/org.matsim/matsim
+    implementation group: 'org.matsim', name: 'matsim', version: '12.0'
+    // https://mvnrepository.com/artifact/org.matsim.contrib/osm
+    implementation group: 'org.matsim.contrib', name: 'osm', version: '12.0-2020w02-avoev.0'
+
+}
+
+test {
+    useJUnitPlatform()
+}
